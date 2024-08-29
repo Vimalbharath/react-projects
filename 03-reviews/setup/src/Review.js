@@ -3,8 +3,29 @@ import people from './data';
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
 
 const Review = () => {
-  const [index,setIndex]=useState(1);
+  const [index,setIndex]=useState(0);
   const{name, job, image, text}=people[index];
+  const checkIndex=(index)=>{
+    if(index>people.length-1){
+    return 0;
+    }
+    if(index<0){
+    return people.length-1;
+    }
+    return index;
+  }
+  const prevPerson=(index)=>{
+   setIndex((index)=>{
+    const newIndex=index+1;
+    return checkIndex(newIndex);
+    });
+  }
+  const nextPerson=(index)=>{
+    setIndex((index)=>{
+    const newIndex=index-1;
+    return checkIndex(newIndex);
+    });
+  }
   return (<article className='review'>
     <div className='img-container'>
       <img src ={image} alt ={name} className='person-img'></img>
@@ -16,8 +37,12 @@ const Review = () => {
       <h3 className='author'>{name}</h3>
       <p className='job'>{job}</p>
       <p className='info'>{text}</p>
-      <FaChevronLeft className='prev-btn'/>
-      <FaChevronRight className='next-btn'/>
+      <button className='prev-btn' onClick={nextPerson}>
+        <FaChevronLeft/>
+      </button>
+      <button className='next-btn'onClick={prevPerson}>
+        <FaChevronRight/>
+      </button>
     </div>
     <button className='random-btn'>surprise me</button>
 
