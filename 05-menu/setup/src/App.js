@@ -4,7 +4,15 @@ import Categories from './Categories';
 import items from './data';
 
 function App() {
-  return <h2>menu project setup</h2>;
+  return (<main>
+    <section className='title'>
+      <h2>our dishes</h2>
+      <div className='underline'></div>
+    </section>
+    <Menu/>
+    <Categories items={items}/>
+
+  </main>);
 }
 
 export default App;
