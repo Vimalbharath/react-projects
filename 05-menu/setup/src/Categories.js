@@ -1,17 +1,27 @@
 import React from 'react';
 
 const Categories = ({items}) => {
-  const {id,title,category,price,img,desc}=items;
   return (
-  <div className='menu-item'>
+    <div className='section-center'>
+      { items.map((item)=>{
+      const {id,title,category,price,img,desc}=item;
+      return (
+        <article key={id} className='menu-item'>
+          <img src={img} alt={title} className='photo'/>
+          <div className='item-info'>
+            <header>
+              <h4>{title}</h4>
+              <h4 className='price'>{price}</h4>
+            </header>
+            <p className='item-text'>{desc}</p>
+          </div>
+        </article>
+      );
 
-<div>
-    {items.map((item)=>{
-      return (<h2>hello</h2>)
-    })
-    }
-    </div>
-  </div>);
+       })
+        }
+       </div>
+  );
 };
 
 export default Categories;
