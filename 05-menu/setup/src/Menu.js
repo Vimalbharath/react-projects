@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Menu = ({filterItems}) => {
+const Menu = ({filterItems,menubar}) => {
   return (
     <div className='btn-container'>
-      <button className='filter-btn' onClick={()=> filterItems('breakfast')}>
-        breakfast
+      {menubar.map((single)=>
+      <button className='filter-btn' onClick={()=> filterItems(single)}>
+        {single}
       </button>
+      )}
+      
     </div>
 
   );
