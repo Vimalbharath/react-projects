@@ -9,8 +9,8 @@ function App() {
   const filterItems=(category) =>{
     const newItems=items.filter((item)=>item.category
     ===category);
-    setMenubar(newItems);
-  }
+    setAllitems(newItems);
+  };
   return (
   <main>
     <section className='menu section'>
