@@ -5,8 +5,15 @@ function App() {
   const[text,setText]=useState([]);
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log('hello');
-    setText(data);
+    let amount=parseInt(count);
+    if(amount<=0){
+      amount=1
+    }
+    if(amount>8){
+      amount=8
+    }
+    console.log(amount);
+    setText(data.slice(0,amount));
   }
   
   return (
