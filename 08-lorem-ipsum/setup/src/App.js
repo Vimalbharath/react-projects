@@ -6,6 +6,7 @@ function App() {
   const handleSubmit=(e)=>{
     e.preventDefault();
     console.log('hello');
+    setText(data);
   }
   
   return (
@@ -21,7 +22,12 @@ function App() {
       <button type='submit' className='btn'>generate</button>
     </form>
     <article className='lorem-text'> 
-      <p>Vimal bharath is my name and I am from a country called Bharath</p>
+    {
+      text.map((para,index)=>{
+        return  <p key={index}>{para}</p>
+      })
+    }
+     
     </article>
   </section>
     )
