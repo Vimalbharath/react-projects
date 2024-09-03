@@ -38,6 +38,18 @@ function App() {
     }
     else if(name && isEditing){
       //code to edit
+      setList(
+        list.map((item)=>{
+          if(item.id===editID){
+            return {...item,title:name}
+          }
+          return item;
+        })
+      )
+      setName('')
+      setEditID(null)
+      setIsEditing(false)
+      showAlert(true,'success','item changed')
     }
     else{
       const newItem={id: new Date().getTime().toString(), title: name}
