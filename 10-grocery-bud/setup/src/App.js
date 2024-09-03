@@ -30,6 +30,7 @@ function App() {
     else{
       const newItem={id: new Date().getTime().toString,title:name}
       setList([...list,newItem])
+      showAlert(true,'success','item added to list');
       setName('')
     }
   }
@@ -46,7 +47,9 @@ function App() {
     </form>
     {list.length>0 && <div className='grocery-container'>
       <List items={list}></List>
-      <button className='clear-btn' onClick={()=>{setList('')}}>clear items</button>
+      <button className='clear-btn' onClick={()=>{setList('');
+       showAlert(true,'danger','empty list');}
+    }>clear items</button>
     </div>}
     
 
