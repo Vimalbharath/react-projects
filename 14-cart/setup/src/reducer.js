@@ -1,3 +1,5 @@
+import CartItem from "./CartItem"
+
 const reducer =(state,action)=>{
     if(action.type === 'CLEAR_CART'){
         return {...state,cart:[]}
@@ -19,6 +21,17 @@ const reducer =(state,action)=>{
                 }
                 return cartItem
             })
+        }
+    }
+    if(action.type==='DECREASE'){
+        return{
+            ...state,
+            cart:state.cart.map((cartItem)=>{
+                if(cartItem.id===action.payload){
+                    return{...cartItem,amount:cartItem.amount-1}
+                }
+                return cartItem
+            }).filter((cartItem)=>cartItem.amount!==0)
         }
     }
     return state
